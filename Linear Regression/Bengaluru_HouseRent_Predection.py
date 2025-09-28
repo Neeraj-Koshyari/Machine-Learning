@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
-import seaborn as sns
 
 # Load dataset
 df = pd.read_csv('Data/Bengaluru_House_Data.csv')
