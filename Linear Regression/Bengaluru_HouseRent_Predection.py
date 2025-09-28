@@ -29,8 +29,7 @@ def convert_sqft_to_num(x):
         return float(x)
     except:
         return None
-
-# NOTE: the code below assumes df3 exists as the dataframe you want to transform.
+        
 # If following from the previous variables, you may want to set df3 = df2.copy() before this apply.
 df3['total_sqft'] = df3['total_sqft'].apply(convert_sqft_to_num)
 
@@ -114,12 +113,13 @@ from sklearn.linear_model import LinearRegression
 lr = LinearRegression()
 lr.fit(x_train, y_train)
 
-# NOTE: the variable `result` is not defined in your snippet.
-# You probably want to compute predictions first, e.g.:
-# result = lr.predict(x_test)
+
+# compute predictions on testing data
+result = lr.predict(x_test)
+
 # Then compute r2_score:
 from sklearn.metrics import r2_score
-# r2_score(y_test, result)
+r2_score(y_test, result)
 
 # Helper: predict price for a single input (expects lr and x to be defined)
 def predict_price(total_sqft, bath, BHK, location):
